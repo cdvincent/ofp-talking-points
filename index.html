@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Talking Points</title>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div>
+        <button id="start">Click To Get Started!</button>
+        <div>
+            <p id="statement">Statement:<br><br></p>
+        </div>
+    </div>
+
+
+    <script>
+
+        $("#start").on("click", function(){
+            $("#statement").empty();
+            let time = prompt("What is the time frame?");
+            let sl = prompt("What was the service level %?");
+            let abd = prompt("What was the abandonment %?");
+            let avgspd = prompt("What was the average speed of answer? (m:ss)");
+            let received = prompt("How many calls were received?");
+            let abandoned = prompt("How many calls were abandoned?");
+                if (abandoned === "1") {
+                    abandoned = "1 call";
+                } else {
+                    abandoned = abandoned + " calls";
+                }
+            let reason = prompt("What was the reason for the impact? (if any)");
+            let statement = "At " + time + ", Overall SL of " + sl + "%, an ABD of " + abd + "%, and AS of " + avgspd + ". There were " + received + " calls recieved, and " + abandoned + " abandoned. " + reason;
+            $("#statement").append(statement);
+        });
+    
+    </script>
+</body>
+</html>
